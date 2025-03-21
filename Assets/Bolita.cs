@@ -15,7 +15,10 @@ public class Bolita : MonoBehaviour
 
     void FixedUpdate()
     {
-       rb.velocity = rb.velocity.normalized * speed;
+        if(rb.velocity.magnitude < speed)
+        { 
+            rb.velocity = rb.velocity.normalized * speed;
+        }
     }
 
     void launch()
@@ -36,10 +39,10 @@ public class Bolita : MonoBehaviour
             nextDirection.y = Random.Range(-7, 7);
         }
         
-        if(Mathf.Abs(nextDirection.x) < 0.1f)
-        {
-            nextDirection.x = Random.Range(-7, 7);
-        }
+        //if(Mathf.Abs(nextDirection.x) < 0.1f)
+        //{
+        //    nextDirection.x = Random.Range(-7, 7);
+        //}
 
         rb.velocity = nextDirection.normalized * speed;
     }

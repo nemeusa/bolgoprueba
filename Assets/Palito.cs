@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Palito : MonoBehaviour
 {
-    public float Speed;
+    [SerializeField] float Speed;
+    [SerializeField] string Player;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class Palito : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float move = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
+        float move = Input.GetAxis(Player) * Speed * Time.deltaTime;
 
         transform.Translate(0, move, 0);
     }
